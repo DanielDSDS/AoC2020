@@ -25,7 +25,7 @@ read(__dirname+'/01/input.txt', function(data) {
     console.log("Day 1 part 2 solution:",elfsAccounting2(input))
 });
 
-//Part 1 first try: brute force
+//Part 1 first try done with brute force
 //Time complexity: O(n^2)
 function elfsAccounting(inputArr) {
     for( var i = 0; i < inputArr.length; i++){
