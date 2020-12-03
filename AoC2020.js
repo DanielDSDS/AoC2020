@@ -21,8 +21,8 @@ read(__dirname+'/01/input.txt', function(data) {
         input.push(+data[item].match(/\d+/g));
     }
    
-    console.log("Day 1 part 1:",elfsAccounting(input))
-    console.log("Day 1 part 2:",elfsAccounting2(input))
+    console.log("Day 1 part 1 solution:",elfsAccounting(input))
+    console.log("Day 1 part 2 solution:",elfsAccounting2(input))
 });
 
 //Part 1 first try: brute force
