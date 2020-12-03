@@ -38,7 +38,7 @@ function elfsAccounting(inputArr) {
 }
 
 //Part 2 first try: brute force also
-//Time complexity O(n^3)
+//Time complexity O(n^)
 function elfsAccounting2(inputArr) {
     for( var i = 0; i < inputArr.length; i++){
         for( var j = 0; j < inputArr.length; j++){
