@@ -1,4 +1,3 @@
-//import file system to scrape input from text files
 var fs = require("fs")
 
 //defining the read input file function
