@@ -27,6 +27,9 @@ read(__dirname+'/input.txt', function(data) {
     return input;
 });
 
+//Day 2: Password decription
+//Time complexity is probably around O(n^2*logn)
+
 //This is the main function that will traverse the input and evaluate each line
 function evaluatePasswords(input) {
     var sum = 0;
