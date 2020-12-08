@@ -24,57 +24,27 @@ read(__dirname+'/input.txt', function(data) {
 
     var t = trees(input)
     console.log('trees: ',t)
+    console.log('1,3',input[1][3],'2,6',input[1][6])
     return input;
 });
 
 
 //Day 3: obstructed path
-//Time complexity: prob O(n^2)
+//Time complexity: prob O(n)
 
 function trees(a){
     var t = 0;
     for(var i = 1, j = 0; i < a.length - 1; i++){
         j = j + 3 
-        if(j<=a[i].length){
-            console.log('i: ',i,'j: ',j)
-            if(a[i][j] === '#')
+            if(a[i][j%a[i].length] === '#'){
+                console.log('i: ',i,'j: ',j,'X')
                 t++ 
-        }else{
-            j = 0
-        }
+            }else{
+                console.log('i: ',i,'j: ',j)
+            }
     }
     return t;
 }
-
-/*
-function transpose(m) {
-    var reversed = [];
-    var transposed = [];
-    var pivot = [];
-    //Invert matrix
-    for(var i = 0; i < m.length - 1; i ++){
-        reversed.push(m[i].reverse())
-    }    
-
-    //Transpose matrix
-    for(var i = 0; i < reversed[i].length; i++){
-        for(var j = 0; j < reversed.length; j++){
-            pivot.push(reversed[j][i])
-        }
-        transposed.push(pivot)
-        pivot = [];
-    }    
-
-    return transposed 
-}
-*/
-
-
-
-
-
-
-
 
 
 
