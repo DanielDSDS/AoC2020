@@ -32,6 +32,7 @@ read(__dirname+'/input.txt', function(data) {
     }
 
     input = parse(input)
+    console.log(input)
     var s = solve(input)
     console.log('p1 sol:',s)
 
@@ -65,13 +66,34 @@ function solve(a){
 function checkPass(p){
     var vcount = 0
     for(var i=0; i<p.length; i++){
-        if(p[i][0]==='byr' || p[i][0]==='iyr' || p[i][0]==='eyr' || p[i][0]==='hgt' || p[i][0]==='hcl' || p[i][0]==='ecl' || p[i][0]==='pid')
+        if(p[i][0]==='byr' 
+            || p[i][0]==='iyr' 
+            || p[i][0]==='eyr' 
+            || p[i][0]==='hgt' 
+            || p[i][0]==='hcl' 
+            || p[i][0]==='ecl' 
+            || p[i][0]==='pid')
             vcount++
     }
     if(vcount >= 7)
         return true
 }
 
+function checkPass2(p){
+    var vcount = 0
+    for(var i=0; i<p.length; i++){
+        if((p[i][0]==='byr' && p[i][1]>=1920 && p[i][1]<=2002) 
+            || (p[i][0]==='iyr' && p[i][1]>=2010 && p[i][1]<=2020) 
+            || (p[i][0]==='eyr' && p[i][1]>=2020 && p[i][1]<=2030) 
+            || (p[i][0]==='hgt' && (p[i][1].includes('cm') ) || (p[i][1].includes('in')) 
+            || p[i][0]==='hcl' 
+            || p[i][0]==='ecl' 
+            || p[i][0]==='pid')
+            vcount++
+    }
+    if(vcount >= 7)
+        return true
+}
 
 
 
