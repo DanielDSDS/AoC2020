@@ -25,7 +25,7 @@ read(__dirname+'/input.txt', function(data) {
     var slopes = [[1,1],[3,1],[5,1],[7,1],[1,2]]
     var t = trees(input,slopes,1)
     var s = p2(input,slopes)
-    console.log('p1 trees: ',t)
+    console.log('\np1 trees: ',t)
     console.log('p2 ans: ',s)
     return input;
 });
