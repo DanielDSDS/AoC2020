@@ -23,6 +23,8 @@ read(__dirname+'/input.txt', function(data) {
     for(var item in data){
         if(data[item] !== '\r'){
             row.push(data[item])
+            if(item == 958)
+                input.push(row);
         }else{
             input.push(row);
             row = [];
@@ -31,7 +33,7 @@ read(__dirname+'/input.txt', function(data) {
 
     input = parse(input)
     var s = solve(input)
-    console.log(s)
+    console.log('p1 sol:',s)
 
     return input;
 });
@@ -39,7 +41,7 @@ read(__dirname+'/input.txt', function(data) {
 //Day 4: Passports
 //Solution O(n^2) could improve vastly if I knew the tools better
 function parse(input){
-    for(var i = 0; i < input.length; i++){
+    for(var i = 0; i < input.length ; i++){
         input[i] = input[i].join(' ') 
         input[i] = input[i].replace(/\r/g,'') 
         input[i] = input[i].split(' ')
