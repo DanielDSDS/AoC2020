@@ -56,7 +56,8 @@ function parse(input){
 function solve(a){
     var c = 0
     for(var i = 0; i < a.length; i++){
-        var valid = checkPass(a[i])    
+        //var valid = checkPass(a[i])    
+        var valid = checkPass2(a[i])
         if(valid)
             c++
     }
@@ -87,9 +88,11 @@ function checkPass2(p){
             || (p[i][0]==='iyr' && p[i][1]>=2010 && p[i][1]<=2020) 
             || (p[i][0]==='eyr' && p[i][1]>=2020 && p[i][1]<=2030) 
             || (p[i][0]==='hgt' && (p[i][1].includes('cm')) || (p[i][1].includes('in'))) 
-            || p[i][0]==='hcl' 
-            || p[i][0]==='ecl' 
-            || p[i][0]==='pid')
+            || (p[i][0]==='hcl' && p[i][1].match(/^#([a-fA-F0-9]{6})$/g)) 
+            || p[i][0]==='ecl' && 
+                (p[i][1]==='amb' || p[i][1]==='blu' || p[i][1]==='brn' || p[i][1]==='gry' || p[i][1]==='grn'
+                   || p[i][1]==='hzl' || p[i][1]==='oth') 
+            || p[i][0]==='pid' && (p[i][1].match(/([0-9]{9})$/g)))
             vcount++
     }
     if(vcount >= 7)
