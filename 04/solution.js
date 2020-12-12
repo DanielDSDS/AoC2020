@@ -32,9 +32,10 @@ read(__dirname+'/input.txt', function(data) {
     }
 
     input = parse(input)
-    console.log(input)
     var s = solve(input)
+    var s2 = solve2(input)
     console.log('p1 sol:',s)
+    console.log('p2 sol:',s2)
 
     return input;
 });
@@ -55,15 +56,23 @@ function parse(input){
 
 function solve(a){
     var c = 0
-    for(var i = 0; i < a.length; i++){
-        //var valid = checkPass(a[i])    
-        var valid = checkPass2(a[i])
+    for(var i = 0; i < a.length - 1; i++){
+        var valid = checkPass(a[i])    
         if(valid)
             c++
     }
     return c
 }
 
+function solve2(a){
+    var c = 0
+    for(var i = 0; i < a.length; i++){
+        var valid = checkPass2(a[i])
+        if(valid)
+            c++
+    }
+    return c
+}
 function checkPass(p){
     var vcount = 0
     for(var i=0; i<p.length; i++){
@@ -87,7 +96,8 @@ function checkPass2(p){
         if((p[i][0]==='byr' && p[i][1]>=1920 && p[i][1]<=2002) 
             || (p[i][0]==='iyr' && p[i][1]>=2010 && p[i][1]<=2020) 
             || (p[i][0]==='eyr' && p[i][1]>=2020 && p[i][1]<=2030) 
-            || (p[i][0]==='hgt' && (p[i][1].includes('cm')) || (p[i][1].includes('in'))) 
+            || p[i][0]==='hgt' && p[i][1].includes('cm') && parseInt(p[i][1],10)>=150 && parseInt(p[i][1],10)<=193 
+            || p[i][0]==='hgt' && p[i][1].includes('in') && parseInt(p[i][1],10)>=59 && parseInt(p[i][1],10)<=76
             || (p[i][0]==='hcl' && p[i][1].match(/^#([a-fA-F0-9]{6})$/g)) 
             || p[i][0]==='ecl' && 
                 (p[i][1]==='amb' || p[i][1]==='blu' || p[i][1]==='brn' || p[i][1]==='gry' || p[i][1]==='grn'
